@@ -34,9 +34,27 @@ small{display:block;margin-top:25px;color:#777187;text-align:center;line-height:
 <small>cimel premium · layanan mandiri<br>aktivasi belum terhubung</small>
 </main>
 <script>
-document.getElementById('form').addEventListener('submit',function(e){
+document.getElementById('form').addEventListener('submit', async function(e) {
 e.preventDefault();
-document.getElementById('status').textContent='tampilan berhasil diuji. sistem aktivasi belum terhubung.';
+
+const status = document.getElementById('status');
+const email = document.getElementById('email').value.trim();
+
+status.textContent = 'sedang memproses...';
+
+try {
+const response = await fetch('/api/process', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ email })
+});
+
+const result = await response.json();
+status.textContent = result.message || 'proses selesai.';
+
+} catch (error) {
+status.textContent = 'gagal terhubung ke server. coba lagi.';
+}
 });
 </script>
 </body>
