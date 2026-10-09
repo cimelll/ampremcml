@@ -1,12 +1,43 @@
 <!doctype html>
+
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>cimel premium</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cimel premium</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#080811;color:#fff;font-family:Arial,sans-serif;display:grid;place-items:center;padding:20px;background-image:radial-gradient(ellipse at top,#38205e 0,transparent 55%)}
+.card{width:100%;max-width:390px;padding:27px;border:1px solid #493568;border-radius:22px;background:#11101de8;box-shadow:0 0 45px #7b35ff20}
+.logo{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,#a855f7,#6366f1);display:grid;place-items:center;font-size:25px;font-weight:bold;margin-bottom:20px}
+h1{font-size:28px;margin:0 0 8px}
+p{color:#aaa6bd;font-size:14px;line-height:1.6}
+label{display:block;margin:24px 0 9px;font-size:13px;color:#ddd5f2}
+input{width:100%;padding:14px;border:1px solid #393047;border-radius:12px;background:#090912;color:white;outline:none;font-size:15px}
+input:focus{border-color:#a855f7}
+button{width:100%;margin-top:15px;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,#9333ea,#6366f1);color:white;font-weight:bold;font-size:15px;cursor:pointer}
+#status{margin-top:16px;font-size:13px;overflow-wrap:anywhere}
+small{display:block;margin-top:25px;color:#777187;text-align:center;line-height:1.6}
+</style>
 </head>
 <body>
-  <h1>cimel premium</h1>
-  <p>website sedang disiapkan.</p>
+<main class="card">
+<div class="logo">C</div>
+<h1>cimel premium</h1>
+<p>panel layanan premium dengan tampilan simpel dan proses yang mudah.</p>
+<form id="form">
+<label for="email">email akun</label>
+<input id="email" type="email" placeholder="masukkan email kamu" required>
+<button type="submit">mulai proses ↗</button>
+</form>
+<div id="status" role="status"></div>
+<small>cimel premium · layanan mandiri<br>aktivasi belum terhubung</small>
+</main>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('status').textContent='tampilan berhasil diuji. sistem aktivasi belum terhubung.';
+});
+</script>
 </body>
-</html>
+  </html>
